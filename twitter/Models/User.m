@@ -16,6 +16,7 @@
     if (self) {
         self.name = dictionary[@"name"];
         self.screenName = dictionary[@"screen_name"];
+        self.profilePicString = dictionary[@"profile_image_url_https"];
     }
     return self;
 }
