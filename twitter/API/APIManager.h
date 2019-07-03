@@ -14,8 +14,18 @@
 
 + (instancetype)shared;
 
-- (void)getHomeTimelineWithCompletion:(void(^)(NSArray *tweets, NSError *error))completion;
+// Load home timeline
+- (void)getHomeTimelineWithCompletion:(void(^)(NSMutableArray *tweets, NSError *error))completion;
 
+// Tweeting
 - (void)postStatusWithText:(NSString *)text completion:(void (^)(Tweet *, NSError *))completion;
+
+// Favoriting
+- (void)favorite:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
+- (void)unfavorite:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
+
+// Retweeting
+- (void)retweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
+- (void)unretweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
 
 @end

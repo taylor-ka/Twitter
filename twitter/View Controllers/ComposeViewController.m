@@ -20,7 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.tweetTextView.layer.borderWidth = 1.5f;
+    self.tweetTextView.layer.borderColor = [[UIColor colorNamed:@"tweeterBlue"] CGColor];
+    self.tweetTextView.layer.cornerRadius = 5;
 }
 
 - (IBAction)onCloseClick:(id)sender {
@@ -31,8 +33,9 @@
     NSString *tweetText = self.tweetTextView.text;
     [[APIManager shared] postStatusWithText:tweetText completion:^(Tweet *tweet, NSError *error) {
         if (error) {
-            NSLog(@"%@", error);
+            NSLog(@"Error composing Tweet: %@", error);
         } else {
+            [self.delegate didTweet:tweet];
             [self dismissViewControllerAnimated:true completion:nil];
         }
     }];
