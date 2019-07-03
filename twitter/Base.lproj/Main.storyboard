@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -119,7 +120,7 @@
                                                         <color key="titleColor" red="0.67519164089999995" green="0.72075617309999995" blue="0.76079094410000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="onFavoriteTap:" destination="6Kf-mB-jnx" eventType="touchDown" id="CLJ-H4-sve"/>
+                                                        <action selector="onFavoriteTap:" destination="6Kf-mB-jnx" eventType="touchUpInside" id="bhM-tP-xm1"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIC-Vq-bla" userLabel="Retweet Button">
@@ -130,7 +131,7 @@
                                                         <color key="titleColor" red="0.67519164085388184" green="0.7207561731338501" blue="0.76079094409942627" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="onRetweetTap:" destination="6Kf-mB-jnx" eventType="touchUpInside" id="hl9-hW-nWm"/>
+                                                        <action selector="onRetweetTap:" destination="6Kf-mB-jnx" eventType="touchUpInside" id="T93-kL-xRb"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -152,6 +153,19 @@
                         <viewLayoutGuide key="safeArea" id="ugE-Ul-H9I"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home Timeline" id="MOc-fV-EZE">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="d8O-7y-w9r">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ExN-cV-zSg">
+                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" name="tweeterBlue"/>
+                                </state>
+                                <connections>
+                                    <action selector="onLogoutTap:" destination="Lbl-k5-U4i" eventType="touchUpInside" id="hgV-Jk-Ket"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Edit Button" image="edit-icon" id="Gqk-aA-ds8">
                             <connections>
                                 <segue destination="34Z-0Y-OMy" kind="presentation" id="GS1-JL-ERh"/>
@@ -229,10 +243,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ytz-Ev-cUB">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" name="tweeterBlue"/>
-                            <color key="textShadowColor" name="tweeterBlue"/>
-                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

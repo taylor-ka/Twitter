@@ -6,10 +6,17 @@
 //  Copyright © 2018 Emerson Malca. All rights reserved.
 //
 
-#import "TimelineViewController.h"
+
 #import "APIManager.h"
+#import "AppDelegate.h"
+
+// Models
 #import "TweetCell.h"
+
+// View Controllers
+#import "TimelineViewController.h"
 #import "ComposeViewController.h"
+#import "LoginViewController.h"
 
 @interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -62,6 +69,30 @@
     // Dispose of any resources that can be recreated.
 }
 
+// Called after new tweet is composed to reload displayed tweets
+- (void)didTweet:(Tweet *)tweet {
+    [self.tweets insertObject:tweet atIndex:0];
+    [self.tableView reloadData];
+}
+
+- (IBAction)onLogoutTap:(id)sender {
+    // Get single instance of app delegate
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    // Create new instance of storyboard
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    // Create new instance of login view controller using identifier
+    LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    
+    // Set root view controller to swich views
+    appDelegate.window.rootViewController = loginViewController;
+    
+    // Clear access tokens
+    [[APIManager shared] logout];
+}
+
+// Table view
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     // Gets instance of custom cell
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
@@ -75,12 +106,6 @@
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Number of tweets returned by API call
     return self.tweets.count;
-}
-
-// Called after new tweet is composed to reload displaed tweets
-- (void)didTweet:(Tweet *)tweet {
-    [self.tweets insertObject:tweet atIndex:0];
-    [self.tableView reloadData];
 }
 
 #pragma mark - Navigation
