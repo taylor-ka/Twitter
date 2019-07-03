@@ -69,7 +69,6 @@
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     cell.tweet = self.tweets[indexPath.row];
     [cell setUpTweetCell];
-    
     return cell;
 }
 
