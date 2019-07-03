@@ -43,7 +43,7 @@ static NSString * const consumerSecret = @"o18gKojuwQlvkcFejUBOF8LIGdh1O3u8czkTk
     
     self = [super initWithBaseURL:baseURL consumerKey:key consumerSecret:secret];
     if (self) {
-        
+        // Additional set up for APIManager
     }
     return self;
 }
@@ -107,7 +107,7 @@ static NSString * const consumerSecret = @"o18gKojuwQlvkcFejUBOF8LIGdh1O3u8czkTk
 }
 
 - (void)unretweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion{
-    NSString *urlString = @"1.1/statuses/unretweet/:id.json";
+     NSString *urlString = [NSString stringWithFormat:@"1.1/statuses/unretweet/%@.json", tweet.idStr];
     NSDictionary *parameters = @{@"id": tweet.idStr};
     
     [self postRequest:urlString parameters:parameters completion:completion];

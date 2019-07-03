@@ -53,6 +53,11 @@
     
     // Set up retweet button
     [self.retweetButton setTitle:[NSString stringWithFormat:@"%i", self.tweet.retweetCount] forState: UIControlStateNormal];
+    NSString *retweetIconName = @"retweet-icon";
+    if (self.tweet.retweeted) {
+        retweetIconName = @"retweet-icon-green";
+    }
+    [self.retweetButton setImage:[UIImage imageNamed:retweetIconName] forState:UIControlStateNormal];
     
     // Set up favorite button
     [self.favoriteButton setTitle:[NSString stringWithFormat:@"%i", self.tweet.favoriteCount] forState: UIControlStateNormal];
