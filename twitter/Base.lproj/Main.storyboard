@@ -72,11 +72,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="106" id="6Kf-mB-jnx" customClass="TweetCell">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="106"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="114" id="6Kf-mB-jnx" customClass="TweetCell">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="114"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Kf-mB-jnx" id="RGf-DO-e2C">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="105.66666666666667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="113.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aJl-Bv-vP7">
@@ -87,7 +87,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYG-HE-jch">
-                                                    <rect key="frame" x="71" y="10" width="47" height="21"/>
+                                                    <rect key="frame" x="71" y="9.9999999999999982" width="47" height="21.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -98,14 +98,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlD-MO-mkp">
-                                                    <rect key="frame" x="71" y="39" width="296" height="20.333333333333329"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlD-MO-mkp">
+                                                    <rect key="frame" x="71" y="39.333333333333336" width="296" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wcw-Xp-3Rp" userLabel="Favorite Button">
-                                                    <rect key="frame" x="298" y="67.333333333333329" width="69" height="30"/>
+                                                    <rect key="frame" x="298" y="67.666666666666671" width="69" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                     <state key="normal" title="1000" image="favor-icon">
                                                         <color key="titleColor" red="0.67519164089999995" green="0.72075617309999995" blue="0.76079094410000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -115,7 +115,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIC-Vq-bla" userLabel="Retweet Button">
-                                                    <rect key="frame" x="192" y="67.333333333333329" width="69" height="30"/>
+                                                    <rect key="frame" x="192" y="67.666666666666671" width="69" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                     <state key="normal" title="1000" image="retweet-icon">
                                                         <color key="titleColor" red="0.67519164085388184" green="0.7207561731338501" blue="0.76079094409942627" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -145,6 +145,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="WlD-MO-mkp" secondAttribute="trailing" constant="8" id="aRm-jk-TkB"/>
                                                 <constraint firstItem="wcw-Xp-3Rp" firstAttribute="top" secondItem="gIC-Vq-bla" secondAttribute="top" id="bMp-9Y-yEV"/>
                                                 <constraint firstItem="Icr-a7-d0F" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VYG-HE-jch" secondAttribute="trailing" constant="20" id="c5w-xL-Zfy"/>
+                                                <constraint firstItem="gIC-Vq-bla" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RGf-DO-e2C" secondAttribute="leadingMargin" constant="8" id="hpb-rO-nVb"/>
                                                 <constraint firstItem="gue-oZ-uqG" firstAttribute="centerY" secondItem="VYG-HE-jch" secondAttribute="centerY" id="n5P-ZI-kfn"/>
                                                 <constraint firstItem="aJl-Bv-vP7" firstAttribute="leading" secondItem="RGf-DO-e2C" secondAttribute="leading" constant="8" id="w6x-tJ-Jt5"/>
                                                 <constraint firstItem="WlD-MO-mkp" firstAttribute="leading" secondItem="aJl-Bv-vP7" secondAttribute="trailing" constant="8" id="xud-gO-25W"/>

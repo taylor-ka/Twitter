@@ -48,15 +48,15 @@ static NSString * const consumerSecret = @"o18gKojuwQlvkcFejUBOF8LIGdh1O3u8czkTk
     return self;
 }
 
-- (void)getHomeTimelineWithCompletion:(void(^)(NSMutableArray *tweets, NSError *error))completion {
-    
+// Get timeline from beginning
+- (void)getHomeTimeline:(void(^)(NSMutableArray *tweets, NSError *error))completion {
     [self GET:@"1.1/statuses/home_timeline.json"
    parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
        
        // Manually cache the tweets. If the request fails, restore from cache if possible.
        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:tweetDictionaries];
        [[NSUserDefaults standardUserDefaults] setValue:data forKey:@"hometimeline_tweets"];
-
+       
        NSMutableArray *tweets  = [Tweet tweetsWithArray:tweetDictionaries];
        completion(tweets, nil);
        
@@ -73,6 +73,20 @@ static NSString * const consumerSecret = @"o18gKojuwQlvkcFejUBOF8LIGdh1O3u8czkTk
        
        completion(tweets, error);
    }];
+}
+
+// Gets tweets past a certain id. Does not cache
+- (void)getHomeTimelineWithLastTweet:(Tweet*) lastTweet completion:(void(^)(NSMutableArray *tweets, NSError *error))completion {
+    NSDictionary *parameters = @{@"max_id": lastTweet.idStr};
+    [self GET:@"1.1/statuses/home_timeline.json" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task,
+                                                                                              NSArray *  _Nullable tweetDictionaries) {
+       NSMutableArray *tweets  = [Tweet tweetsWithArray:tweetDictionaries];
+       completion(tweets, nil);
+   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+       completion(nil, error);
+   }];
+    
+
 }
 
 // Tweet

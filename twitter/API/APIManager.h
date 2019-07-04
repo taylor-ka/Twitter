@@ -15,7 +15,8 @@
 + (instancetype)shared;
 
 // Load home timeline
-- (void)getHomeTimelineWithCompletion:(void(^)(NSMutableArray *tweets, NSError *error))completion;
+- (void)getHomeTimeline:(void(^)(NSMutableArray *tweets, NSError *error))completion;
+- (void)getHomeTimelineWithLastTweet:(Tweet*) lastTweet completion:(void(^)(NSMutableArray *tweets, NSError *error))completion;
 
 // Tweeting
 - (void)postStatusWithText:(NSString *)text completion:(void (^)(Tweet *, NSError *))completion;

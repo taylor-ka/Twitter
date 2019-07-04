@@ -23,6 +23,7 @@
 @property (strong, nonatomic) NSMutableArray *tweets;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (nonatomic) BOOL isMoreDataLoading;
 
 @end
 
@@ -47,7 +48,7 @@
 // Refresh displayed tweets
 - (void)fetchTweets {
     // Make API request
-    [[APIManager shared] getHomeTimelineWithCompletion:^(NSMutableArray *tweetsArray, NSError *error) {
+    [[APIManager shared] getHomeTimeline:^(NSMutableArray *tweetsArray, NSError *error) {
         // API Manager calls completion handler and passes back data
         if (tweetsArray) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
@@ -67,6 +68,38 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (!self.isMoreDataLoading) {
+        // Calculate the position of one screen length before the bottom of the results
+        int scrollViewContentHeight = self.tableView.contentSize.height;
+        int scrollOffsetThreshold = scrollViewContentHeight - self.tableView.bounds.size.height;
+        
+        // When the user has scrolled past the threshold, start requesting
+        if(scrollView.contentOffset.y > scrollOffsetThreshold && self.tableView.isDragging) {
+            self.isMoreDataLoading = true;
+            
+            Tweet *lastTweet = self.tweets[self.tweets.count - 1];
+            [[APIManager shared] getHomeTimelineWithLastTweet:lastTweet completion:^(NSMutableArray *tweetsArray, NSError *error) {
+                self.isMoreDataLoading = false;
+                
+                if (tweetsArray) {
+                    NSLog(@"😎😎😎 Successfully loaded home timeline since last tweet");
+                    
+                    // Add new tweets to old ones
+                    [self.tweets addObjectsFromArray:tweetsArray];
+                    
+                    // Reload table view
+                    // reloadData calls numberOfRows and cellForRowAt methods
+                    [self.tableView reloadData];
+                    [self.refreshControl endRefreshing];
+                } else {
+                    NSLog(@"😫😫😫 Error getting home timeline since last tweet: %@", error.localizedDescription);
+                }
+            }];
+        }
+    }
 }
 
 // Called after new tweet is composed to reload displayed tweets
