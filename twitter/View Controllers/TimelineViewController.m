@@ -17,8 +17,9 @@
 #import "TimelineViewController.h"
 #import "ComposeViewController.h"
 #import "LoginViewController.h"
+#import "ProfileViewController.h"
 
-@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface TimelineViewController () <TweetCellDelegate, ComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) NSMutableArray *tweets;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -130,6 +131,9 @@
     // Gets instance of custom cell
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     
+    // Set up cell delegate
+    cell.delegate = self;
+    
     // Populate cell with data
     cell.tweet = self.tweets[indexPath.row];
     [cell setUpTweetCell];
@@ -141,13 +145,26 @@
     return self.tweets.count;
 }
 
+// TweetCell Delegate
+- (void) tweetCell:(TweetCell *)tweetCell didTapProfileOf:(User *)user {
+    // Segue to profile view controller
+    [self performSegueWithIdentifier:@"profileSegue" sender:user];
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    UINavigationController *navigationController = [segue destinationViewController];
-    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-    composeController.delegate = self;
+    if ([segue.identifier isEqualToString:@"profileSegue"]) {
+        // Profile segue
+        ProfileViewController *profileController = [segue destinationViewController];
+        profileController.user = sender;
+    } else {
+        // Compose segue
+        UINavigationController *navigationController = [segue destinationViewController];
+        ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+        composeController.delegate = self;
+    }
 }
 
 @end

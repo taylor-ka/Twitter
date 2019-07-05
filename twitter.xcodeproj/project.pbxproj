@@ -21,6 +21,7 @@
 		B6D92C4322CACD2A001D287D /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D92C4222CACD2A001D287D /* Tweet.m */; };
 		B6D92C4622CADC4E001D287D /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D92C4522CADC4E001D287D /* TweetCell.m */; };
 		B6D92C4922CC11C4001D287D /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D92C4822CC11C4001D287D /* ComposeViewController.m */; };
+		B6D92C4C22CFEF94001D287D /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D92C4B22CFEF94001D287D /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,8 @@
 		B6D92C4522CADC4E001D287D /* TweetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TweetCell.m; sourceTree = "<group>"; };
 		B6D92C4722CC11C4001D287D /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
 		B6D92C4822CC11C4001D287D /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
+		B6D92C4A22CFEF94001D287D /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		B6D92C4B22CFEF94001D287D /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +152,8 @@
 				6AD2790820BCC04D0085BC29 /* TimelineViewController.m */,
 				B6D92C4722CC11C4001D287D /* ComposeViewController.h */,
 				B6D92C4822CC11C4001D287D /* ComposeViewController.m */,
+				B6D92C4A22CFEF94001D287D /* ProfileViewController.h */,
+				B6D92C4B22CFEF94001D287D /* ProfileViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 				B6D92C4322CACD2A001D287D /* Tweet.m in Sources */,
 				6AD2790620BCC0380085BC29 /* LoginViewController.m in Sources */,
 				6AD278DA20BC4B950085BC29 /* AppDelegate.m in Sources */,
+				B6D92C4C22CFEF94001D287D /* ProfileViewController.m in Sources */,
 				6AD278F620BCB68B0085BC29 /* APIManager.m in Sources */,
 				6AD2790920BCC04D0085BC29 /* TimelineViewController.m in Sources */,
 			);

@@ -10,6 +10,8 @@
 #import "UIImageView+AFNetworking.h"
 #import "APIManager.h"
 
+@protocol  TweetCellDelegate;
+
 @interface TweetCell ()
 
 // Images
@@ -31,6 +33,15 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    // Set up tap gesture recognizer for profile picture
+    
+    // Create tap recognizer
+    UITapGestureRecognizer *profileTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onUserProfileTap:)];
+    
+    // Link with profile picture
+    [self.profilePicView addGestureRecognizer:profileTapGestureRecognizer];
+    [self.profilePicView setUserInteractionEnabled:YES];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -40,8 +51,9 @@
 }
 
 - (void) setUpTweetCell {
-    // Set up profile pic
-    NSURL *profilePicURL = [NSURL URLWithString:self.tweet.user.profilePicString];
+    // Set up profile pic with slightly better quality
+    NSString *biggerProfilePicString = [self.tweet.user.profilePicString stringByReplacingOccurrencesOfString:@"_normal" withString:@"_bigger"];
+    NSURL *profilePicURL = [NSURL URLWithString:biggerProfilePicString];
     self.profilePicView.image = nil;  // to avoid flicker
     [self.profilePicView setImageWithURL:profilePicURL];
     
@@ -140,5 +152,11 @@
         }];
     }
 }
+
+- (void) onUserProfileTap:(UITapGestureRecognizer *)sender {
+    // Call delegate method
+    [self.delegate tweetCell:self didTapProfileOf:self.tweet.user];
+}
+
 
 @end

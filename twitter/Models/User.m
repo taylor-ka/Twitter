@@ -16,7 +16,12 @@
     if (self) {
         self.name = dictionary[@"name"];
         self.screenName = dictionary[@"screen_name"];
+        self.tagline = dictionary[@"description"];
         self.profilePicString = dictionary[@"profile_image_url_https"];
+        self.headerPicString = dictionary[@"profile_banner_url"];
+        self.numTweets = [dictionary[@"statuses_count"] intValue];
+        self.numFollowers = [dictionary[@"followers_count"] intValue];
+        self.numFollowing = [dictionary[@"friends_count"] intValue];
     }
     return self;
 }
