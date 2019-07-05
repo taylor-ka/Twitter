@@ -49,12 +49,12 @@
                         <viewLayoutGuide key="safeArea" id="osx-NC-afp"/>
                     </view>
                     <connections>
-                        <segue destination="FTQ-G1-N2b" kind="presentation" identifier="loginSegue" id="CHf-4w-b5m"/>
+                        <segue destination="FTQ-G1-N2b" kind="presentation" id="dDe-mL-51A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hKJ-HH-8tn" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
+            <point key="canvasLocation" x="828" y="36"/>
         </scene>
         <!--Home Timeline-->
         <scene sceneID="1Tv-nE-1AW">
@@ -182,7 +182,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="Logout">
-                                    <color key="titleColor" name="tweeterBlue"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="onLogoutTap:" destination="Lbl-k5-U4i" eventType="touchUpInside" id="hgV-Jk-Ket"/>
@@ -190,6 +190,7 @@
                             </button>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Edit Button" image="edit-icon" id="Gqk-aA-ds8">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="34Z-0Y-OMy" kind="presentation" id="GS1-JL-ERh"/>
                             </connections>
@@ -202,12 +203,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQh-hN-GQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1702" y="36"/>
+            <point key="canvasLocation" x="2644" y="35.467980295566505"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile Details-->
         <scene sceneID="b6Q-vn-OiS">
             <objects>
-                <viewController id="HCw-Ux-TdF" customClass="ProfileViewController" sceneMemberID="viewController">
+                <viewController title="Profile Details" id="HCw-Ux-TdF" customClass="ProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eYm-bA-0Wy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -302,7 +303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmk-w6-7al" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1701.5999999999999" y="803.94088669950747"/>
+            <point key="canvasLocation" x="2644" y="778"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="bdk-Jm-Vvx">
@@ -349,6 +350,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Veo-0Y-daA">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="close-icon" id="OMW-hY-7T4">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="onCloseClick:" destination="SHT-SO-xd2" id="pAW-oq-q2o"/>
                             </connections>
@@ -359,7 +361,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="Tweet">
-                                    <color key="titleColor" red="0.27280730009078979" green="0.56185060739517212" blue="0.83140462636947632" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="onTweetClick:" destination="SHT-SO-xd2" eventType="touchDown" id="RRC-m2-FMe"/>
@@ -376,7 +378,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IGa-eD-WIo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3436" y="35.467980295566505"/>
+            <point key="canvasLocation" x="4391" y="35"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WUT-Ke-VeR">
@@ -386,6 +388,14 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ytz-Ev-cUB">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" name="tweeterBlue"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -394,7 +404,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JHS-35-jFs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="860" y="36.431784107946029"/>
+            <point key="canvasLocation" x="1679" y="36"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pbd-So-fFL">
@@ -404,6 +414,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UoY-jr-w28">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="tweeterBlue"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -412,7 +423,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s0P-ne-QN1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2548" y="36"/>
+            <point key="canvasLocation" x="3614" y="35"/>
         </scene>
     </scenes>
     <resources>

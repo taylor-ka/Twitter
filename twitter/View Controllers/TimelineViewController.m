@@ -80,27 +80,30 @@
         // When the user has scrolled past the threshold, start requesting
         if(scrollView.contentOffset.y > scrollOffsetThreshold && self.tableView.isDragging) {
             self.isMoreDataLoading = true;
-            
-            Tweet *lastTweet = self.tweets[self.tweets.count - 1];
-            [[APIManager shared] getHomeTimelineWithLastTweet:lastTweet completion:^(NSMutableArray *tweetsArray, NSError *error) {
-                self.isMoreDataLoading = false;
-                
-                if (tweetsArray) {
-                    NSLog(@"😎😎😎 Successfully loaded home timeline since last tweet");
-                    
-                    // Add new tweets to old ones
-                    [self.tweets addObjectsFromArray:tweetsArray];
-                    
-                    // Reload table view
-                    // reloadData calls numberOfRows and cellForRowAt methods
-                    [self.tableView reloadData];
-                    [self.refreshControl endRefreshing];
-                } else {
-                    NSLog(@"😫😫😫 Error getting home timeline since last tweet: %@", error.localizedDescription);
-                }
-            }];
+            [self loadMoreTweets];
         }
     }
+}
+
+- (void) loadMoreTweets {
+    Tweet *lastTweet = self.tweets[self.tweets.count - 1];
+    [[APIManager shared] getHomeTimelineWithLastTweet:lastTweet completion:^(NSMutableArray *tweetsArray, NSError *error) {
+        self.isMoreDataLoading = false;
+        
+        if (tweetsArray) {
+            NSLog(@"😎😎😎 Successfully loaded home timeline since last tweet");
+            
+            // Add new tweets to old ones
+            [self.tweets addObjectsFromArray:tweetsArray];
+            
+            // Reload table view
+            // reloadData calls numberOfRows and cellForRowAt methods
+            [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
+        } else {
+            NSLog(@"😫😫😫 Error getting home timeline since last tweet: %@", error.localizedDescription);
+        }
+    }];
 }
 
 // Called after new tweet is composed to reload displayed tweets
