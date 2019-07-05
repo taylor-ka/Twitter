@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *closeButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *tweetButton;
 @property (weak, nonatomic) IBOutlet UITextView *tweetTextView;
+@property (weak, nonatomic) IBOutlet UILabel *characterCountLabel;
 
 @end
 
@@ -20,9 +21,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Text box border
     self.tweetTextView.layer.borderWidth = 1.5f;
     self.tweetTextView.layer.borderColor = [[UIColor colorNamed:@"tweeterBlue"] CGColor];
     self.tweetTextView.layer.cornerRadius = 5;
+    
+    // To control character count
+    self.tweetTextView.delegate = self;
 }
 
 - (IBAction)onCloseClick:(id)sender {
@@ -39,6 +45,21 @@
             [self dismissViewControllerAnimated:true completion:nil];
         }
     }];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    // Set max character limit
+    int characterLimit = 280;
+    
+    // Construct what the new text would be if we allowed the user's latest edit
+    NSString *newText = [self.tweetTextView.text stringByReplacingCharactersInRange:range withString:text];
+    
+    // Update character count label
+    NSInteger charactersLeft = 280 - newText.length;
+    self.characterCountLabel.text = [NSString stringWithFormat:@"%ld", charactersLeft];
+    
+    // Return if the edit should be allowed (fits in character limit)
+    return newText.length < characterLimit;
 }
 
 /*
