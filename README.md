@@ -2,7 +2,7 @@
 
 **Twitter** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: **X** hours spent in total
+Time spent: **20** hours spent in total
 
 ## User Stories
 
@@ -35,7 +35,7 @@ The following **optional** features are implemented:
 - [x] When composing, you should have a countdown for the number of characters remaining for the tweet (out of 140) (**1 point**)
 - [x] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
 - [ ] User can reply to any tweet, and replies should be prefixed with the username and the reply_id should be set when posting the tweet (**2 points**)
-- [ ] User sees embedded images in tweet if available
+- [x] User sees embedded images in tweet if available
 - [ ] User can switch between timeline, mentions, or profile view through a tab bar (**3 points**)
 - [ ] Profile Page: pulling down the profile page should blur and resize the header image. (**4 points**)
 
@@ -54,13 +54,16 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/iZz6VE2acT.gif' title='Video Walkthrough 1' width='' alt='Video Walkthrough 1' />
+<img src='http://g.recordit.co/TS52ANAVUL.gif' width='' alt='Video Walkthrough 2' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
 Describe any challenges encountered while building the app.
+- using autolayout for tweet cells with embedded images was very difficult
+- understanding delegates and protocols
 
 ## Credits
 

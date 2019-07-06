@@ -49,7 +49,7 @@
                         <viewLayoutGuide key="safeArea" id="osx-NC-afp"/>
                     </view>
                     <connections>
-                        <segue destination="FTQ-G1-N2b" kind="presentation" id="dDe-mL-51A"/>
+                        <segue destination="FTQ-G1-N2b" kind="presentation" identifier="loginSegue" id="dDe-mL-51A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hKJ-HH-8tn" sceneMemberID="firstResponder"/>
@@ -130,14 +130,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FMQ-b5-ofO">
-                                                    <rect key="frame" x="31" y="105.66666666666667" width="313" height="184.33333333333331"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FMQ-b5-ofO">
+                                                    <rect key="frame" x="39" y="105.66666666666667" width="297" height="168.33333333333331"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="WlD-MO-mkp" firstAttribute="top" secondItem="VYG-HE-jch" secondAttribute="bottom" constant="8" id="0Ot-Bi-203"/>
                                                 <constraint firstItem="wcw-Xp-3Rp" firstAttribute="leading" secondItem="gIC-Vq-bla" secondAttribute="trailing" constant="37" id="58v-Bn-JeT"/>
-                                                <constraint firstItem="FMQ-b5-ofO" firstAttribute="bottom" secondItem="RGf-DO-e2C" secondAttribute="bottomMargin" constant="8" id="60Q-XF-s4a"/>
+                                                <constraint firstItem="FMQ-b5-ofO" firstAttribute="bottom" secondItem="RGf-DO-e2C" secondAttribute="bottomMargin" constant="-8" id="60Q-XF-s4a"/>
                                                 <constraint firstItem="Icr-a7-d0F" firstAttribute="centerY" secondItem="VYG-HE-jch" secondAttribute="centerY" id="BdC-ft-PPz"/>
                                                 <constraint firstItem="FMQ-b5-ofO" firstAttribute="top" secondItem="wcw-Xp-3Rp" secondAttribute="bottom" constant="8" id="FF0-2Y-EgH"/>
                                                 <constraint firstItem="aJl-Bv-vP7" firstAttribute="top" secondItem="RGf-DO-e2C" secondAttribute="top" constant="8" id="JY0-nF-Xah"/>
@@ -149,10 +149,10 @@
                                                 <constraint firstAttribute="trailing" secondItem="WlD-MO-mkp" secondAttribute="trailing" constant="8" id="aRm-jk-TkB"/>
                                                 <constraint firstItem="wcw-Xp-3Rp" firstAttribute="top" secondItem="gIC-Vq-bla" secondAttribute="top" id="bMp-9Y-yEV"/>
                                                 <constraint firstItem="Icr-a7-d0F" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VYG-HE-jch" secondAttribute="trailing" constant="20" id="c5w-xL-Zfy"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="FMQ-b5-ofO" secondAttribute="trailing" constant="16" id="ff2-1g-kcX"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="FMQ-b5-ofO" secondAttribute="trailing" constant="24" id="ff2-1g-kcX"/>
                                                 <constraint firstItem="gIC-Vq-bla" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RGf-DO-e2C" secondAttribute="leadingMargin" constant="8" id="hpb-rO-nVb"/>
                                                 <constraint firstItem="gue-oZ-uqG" firstAttribute="centerY" secondItem="VYG-HE-jch" secondAttribute="centerY" id="n5P-ZI-kfn"/>
-                                                <constraint firstItem="FMQ-b5-ofO" firstAttribute="leading" secondItem="RGf-DO-e2C" secondAttribute="leadingMargin" constant="16" id="rq3-P2-J9x"/>
+                                                <constraint firstItem="FMQ-b5-ofO" firstAttribute="leading" secondItem="RGf-DO-e2C" secondAttribute="leadingMargin" constant="24" id="rq3-P2-J9x"/>
                                                 <constraint firstItem="aJl-Bv-vP7" firstAttribute="leading" secondItem="RGf-DO-e2C" secondAttribute="leading" constant="8" id="w6x-tJ-Jt5"/>
                                                 <constraint firstItem="WlD-MO-mkp" firstAttribute="leading" secondItem="aJl-Bv-vP7" secondAttribute="trailing" constant="8" id="xud-gO-25W"/>
                                                 <constraint firstItem="wcw-Xp-3Rp" firstAttribute="top" secondItem="WlD-MO-mkp" secondAttribute="bottom" constant="8" id="y8f-MI-MXP"/>
