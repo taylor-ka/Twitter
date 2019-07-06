@@ -38,6 +38,22 @@
         NSDictionary *userDict = dictionary[@"user"];
         self.user = [[User alloc] initWithDictionary:userDict];
         
+        
+        // Set up embedded media
+        NSDictionary *entities = dictionary[@"entities"];
+        NSArray *mediaArray = entities[@"media"];
+        if (mediaArray) {
+            NSDictionary *media = mediaArray[0];
+            NSString *mediaString = media[@"media_url_https"];
+            if (mediaString) {
+                self.embeddedMediaString = mediaString;
+            } else {
+                self.embeddedMediaString = @"";
+            }
+        } else {
+            self.embeddedMediaString = @"";
+        }
+        
         // Create and format createdAtString
         NSString *createdAtOriginalString = dictionary[@"created_at"];
         

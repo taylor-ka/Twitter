@@ -78,8 +78,7 @@ static NSString * const consumerSecret = @"o18gKojuwQlvkcFejUBOF8LIGdh1O3u8czkTk
 // Gets tweets past a certain id. Does not cache
 - (void)getHomeTimelineWithLastTweet:(Tweet*) lastTweet completion:(void(^)(NSMutableArray *tweets, NSError *error))completion {
     NSDictionary *parameters = @{@"max_id": lastTweet.idStr};
-    [self GET:@"1.1/statuses/home_timeline.json" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task,
-                                                                                              NSArray *  _Nullable tweetDictionaries) {
+    [self GET:@"1.1/statuses/home_timeline.json" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
        NSMutableArray *tweets  = [Tweet tweetsWithArray:tweetDictionaries];
        completion(tweets, nil);
    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

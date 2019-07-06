@@ -16,6 +16,7 @@
 
 // Images
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicView;
+@property (weak, nonatomic) IBOutlet UIImageView *embeddedMediaView;
 
 // Labels
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -51,6 +52,14 @@
 }
 
 - (void) setUpTweetCell {
+    // Set up image view
+    self.embeddedMediaView.image = nil;
+    if (self.tweet.embeddedMediaString.length != 0) {
+        NSLog(@"we have an image");
+        NSURL *embeddedMediaURL = [NSURL URLWithString:self.tweet.embeddedMediaString];
+        [self.embeddedMediaView setImageWithURL:embeddedMediaURL];
+    }
+    
     // Set up profile pic with slightly better quality
     NSString *biggerProfilePicString = [self.tweet.user.profilePicString stringByReplacingOccurrencesOfString:@"_normal" withString:@"_bigger"];
     NSURL *profilePicURL = [NSURL URLWithString:biggerProfilePicString];
